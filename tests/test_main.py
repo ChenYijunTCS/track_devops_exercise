@@ -24,4 +24,3 @@ def test_add():
   assert add(None, 3, "5.1") == 
   assert add("b", 4, 5) == 
 """
-    return
