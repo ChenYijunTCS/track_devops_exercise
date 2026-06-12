@@ -1,26 +1,18 @@
 from src.main import add
-import pytest
-
-def test_add():
- """
-  assert add(7, 2) == 
-  assert add(5, "2", 3) == 
-  assert add("2", "8.2") == 
-  assert add("8", "1", 3.6) == 
-  assert add("1", "2") == 
-  assert add("3", "4", "5") == 
-  assert add(2.6, "4", None) == 
-  assert add(2.5, 3, "5.1") == 
-  assert add(5.4, 9.8) == 
-  assert add("1.4", "2", 3) == 
-  assert add(2.5, 3, "x") == 
-  assert add(2.1, 9.3, 3.7) == 
-  assert add(1, 6, 3) == 
-  assert add(1.6, 2.1) == 
-  assert add(3.1, 2) == 
-  assert add(1.9, 4.3, "2.6") == 
-  assert add("1", "2", 9) == 
-  assert add("4", "2.4", 1) == 
-  assert add(None, 3, "5.1") == 
-  assert add("b", 4, 5) == 
-"""
+def test_add_success():
+   assert add(1, 2, 3) == 6
+   assert add(1.5, 2.5, 3) == 7.0
+   assert add(0, 0, 0) == 0
+   assert add(10, 10, 10) == 30
+def test_add_type_error():
+   assert add("1", 2, 3) == -1
+   assert add(1, "2", 3) == -1
+   assert add(1, 2, "3") == -1
+   assert add(None, 2, 3) == -1
+def test_add_range_error():
+   assert add(-1, 2, 3) == -2
+   assert add(11, 2, 3) == -2
+   assert add(1, -1, 3) == -2
+   assert add(1, 11, 3) == -2
+   assert add(1, 2, -1) == -2
+   assert add(1, 2, 11) == -2
